@@ -13,7 +13,7 @@ export default async function NewsPage() {
     <>
       <h1>Новости</h1>
       <ul>
-        {news.map((item) => {
+        {news.map((item: News) => {
           return (
             <li key={item.id}>
               <Link href={`/news/${item.id}`}>{item.title}</Link>
