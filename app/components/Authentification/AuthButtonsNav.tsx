@@ -1,4 +1,3 @@
-import { useSession } from "next-auth/react";
 import SignButton from "./SignButton";
 import { auth } from "@/auth";
 
