@@ -4,7 +4,7 @@ import Navigation from "../Navigation/Navigation";
 export default function HeaderArea() {
   return (
     <header>
-      <div>Simple App + Auth</div>
+      <div>Next Auth</div>
       <Navigation />
     </header>
   );

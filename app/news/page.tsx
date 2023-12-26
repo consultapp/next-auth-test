@@ -1,25 +1,18 @@
-import Link from "next/link";
+import News from "@/components/News/News";
 import { Suspense } from "react";
 
 export const metadata = {
   title: "Новости",
 };
 
-export default async function NewsPage() {
-  const url = "https://jsonplaceholder.typicode.com/posts/";
-  const news = await (await fetch(url)).json();
-
+export default function NewsPage() {
   return (
     <>
       <h1>Новости</h1>
       <ul>
-        {news.map((item: News) => {
-          return (
-            <li key={item.id}>
-              <Link href={`/news/${item.id}`}>{item.title}</Link>
-            </li>
-          );
-        })}
+        <Suspense fallback="loading">
+          <News />
+        </Suspense>
       </ul>
     </>
   );

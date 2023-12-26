@@ -1,7 +1,5 @@
 "use client";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
-import img from "@/assets/auth-structure.png";
 
 export default function ProfilePage() {
   const { data: session, status } = useSession();
@@ -18,11 +16,6 @@ export default function ProfilePage() {
   return (
     <main>
       <h1>Profile page</h1>
-      <p>
-        Cтраница с произвольным текстом, недоступная без авторизации. Технически
-        закрыта через Layout в Route Group (private).
-      </p>
-      <Image src={img} width={400} height={200} alt="auth structure" />
 
       <hr />
       <h2>User Info:</h2>
