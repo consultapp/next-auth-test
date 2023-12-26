@@ -8,11 +8,7 @@ export default async function AuthButtonsNav() {
 
   return (
     <>
-      {session ? (
-        <p>Signed in as {session?.user?.email}</p>
-      ) : (
-        <p> Not signed in</p>
-      )}
+      {session ? <p>{session?.user?.name}</p> : <p> Not signed in</p>}
       <SignButton />
     </>
   );

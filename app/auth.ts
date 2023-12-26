@@ -5,14 +5,14 @@ import type {
 } from "next";
 import type { NextAuthOptions } from "next-auth";
 import { getServerSession } from "next-auth";
-import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const config: NextAuthOptions = {
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID ?? "",
-      clientSecret: process.env.GITHUB_SECRET ?? "",
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
     }),
     CredentialsProvider({
       name: "Credentials",
@@ -22,14 +22,13 @@ export const config: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        // const res = await fetch("/your/endpoint", {
-        //   method: "POST",
-        //   body: JSON.stringify(credentials),
-        //   headers: { "Content-Type": "application/json" },
-        // });
-        // const user = await res.json();
-        const user = { username: "Dmitry", password: "12345" };
-        // If no error and we have user data, return it
+        const user = {
+          username: "Dmitry",
+          password: "12345",
+          id: "1",
+          name: "Dmitry",
+          email: "info@consultapp.ru",
+        };
         if (
           credentials?.username === user.username &&
           credentials?.password === user.password &&
